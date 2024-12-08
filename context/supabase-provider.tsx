@@ -1,6 +1,6 @@
 import { Session, User } from "@supabase/supabase-js";
 import { useRouter, useSegments, SplashScreen } from "expo-router";
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useState, useRef } from "react";
 
 import { supabase } from "@/config/supabase";
 
@@ -65,16 +65,25 @@ export const SupabaseProvider = ({ children }: SupabaseProviderProps) => {
 	};
 
 	useEffect(() => {
-		supabase.auth.getSession().then(({ data: { session } }) => {
-			setSession(session);
-			setUser(session ? session.user : null);
-			setInitialized(true);
+		const {
+			data: { subscription },
+		} = supabase.auth.onAuthStateChange((event, session) => {
+			console.log("Auth event:", event, session);
+
+			if (event === "INITIAL_SESSION") {
+				setSession(session);
+				setUser(session?.user ?? null);
+				setInitialized(true);
+			} else if (event === "SIGNED_IN" || event === "TOKEN_REFRESHED") {
+				setSession(session);
+				setUser(session?.user ?? null);
+			} else if (event === "SIGNED_OUT") {
+				setSession(null);
+				setUser(null);
+			}
 		});
 
-		supabase.auth.onAuthStateChange((_event, session) => {
-			setSession(session);
-			setUser(session ? session.user : null);
-		});
+		return () => subscription.unsubscribe();
 	}, []);
 
 	useEffect(() => {
