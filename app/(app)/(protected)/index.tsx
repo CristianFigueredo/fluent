@@ -191,7 +191,7 @@ const RoomView = () => {
 						<View className="mb-6 bg-muted p-4 rounded-full">
 							<Octicons
 								name="comment-discussion"
-								size={28}
+								size={18}
 								color={colors.dark.foreground}
 							/>
 						</View>

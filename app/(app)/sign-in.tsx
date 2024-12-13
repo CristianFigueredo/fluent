@@ -54,6 +54,7 @@ export default function SignIn() {
 									placeholder="Email"
 									autoCapitalize="none"
 									autoComplete="email"
+									importantForAutofill="yes"
 									autoCorrect={false}
 									keyboardType="email-address"
 									{...field}
@@ -70,6 +71,8 @@ export default function SignIn() {
 									autoCapitalize="none"
 									autoCorrect={false}
 									secureTextEntry
+									importantForAutofill="yes"
+									autoComplete="password"
 									{...field}
 								/>
 							)}

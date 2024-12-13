@@ -7,6 +7,8 @@ import { SafeAreaView } from "@/components/safe-area-view";
 import { Button } from "@/components/ui/button";
 import { Text } from "@/components/ui/text";
 import { H1, Muted } from "@/components/ui/typography";
+import { openLink } from "@/lib/utils";
+import { TERMS_AND_CONDITIONS_URL, PRIVACY_POLICY_URL } from "@/constants/urls";
 
 export default function WelcomeScreen() {
 	const router = useRouter();
@@ -40,6 +42,22 @@ export default function WelcomeScreen() {
 				>
 					<Text>Sign In</Text>
 				</Button>
+				<Text className="text-sm text-center text-muted-foreground">
+					By continuing you agree with our{" "}
+					<Text
+						onPress={() => openLink(TERMS_AND_CONDITIONS_URL)}
+						className="text-primary underline text-sm"
+					>
+						Terms
+					</Text>{" "}
+					and{" "}
+					<Text
+						onPress={() => openLink(PRIVACY_POLICY_URL)}
+						className="text-primary underline text-sm"
+					>
+						Privacy Policy
+					</Text>
+				</Text>
 			</View>
 		</SafeAreaView>
 	);

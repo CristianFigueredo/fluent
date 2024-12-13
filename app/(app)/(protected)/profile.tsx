@@ -1,38 +1,15 @@
-import { View, ScrollView, Linking } from "react-native";
+import { View, ScrollView } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 
 import { Button } from "@/components/ui/button";
 import { Text } from "@/components/ui/text";
 import { useSupabase } from "@/context/supabase-provider";
 import { colors } from "@/constants/colors";
-import { getInitialsFrom } from "@/lib/utils";
-import { toast } from "burnt";
+import { getInitialsFrom, openLink } from "@/lib/utils";
+import { TERMS_AND_CONDITIONS_URL, PRIVACY_POLICY_URL } from "@/constants/urls";
 
 export default function Profile() {
 	const { signOut, user } = useSupabase();
-
-	const openLink = async (url: string) => {
-		try {
-			const supported = await Linking.canOpenURL(url);
-			if (!supported) {
-				console.warn(`Cannot open URL: ${url}`);
-				toast({
-					title: "Cannot open this link",
-					preset: "error",
-					duration: 3,
-				});
-				return;
-			}
-			await Linking.openURL(url);
-		} catch (error) {
-			console.error("Error opening link:", error);
-			toast({
-				title: "Failed to open the link",
-				preset: "error",
-				duration: 3,
-			});
-		}
-	};
 
 	return (
 		<ScrollView className="flex-1 bg-background">
@@ -94,9 +71,7 @@ export default function Profile() {
 					<Button
 						variant="ghost"
 						className="flex-row justify-between items-center w-full py-3"
-						onPress={() =>
-							openLink("https://fluent-dusky.vercel.app/terms-and-services")
-						}
+						onPress={() => openLink(TERMS_AND_CONDITIONS_URL)}
 					>
 						<Text className="text-foreground">Terms and Conditions</Text>
 						<Ionicons
@@ -108,9 +83,7 @@ export default function Profile() {
 					<Button
 						variant="ghost"
 						className="flex-row justify-between items-center w-full py-3"
-						onPress={() =>
-							openLink("https://fluent-dusky.vercel.app/privacy-policy")
-						}
+						onPress={() => openLink(PRIVACY_POLICY_URL)}
 					>
 						<Text className="text-foreground">Privacy Policy</Text>
 						<Ionicons
