@@ -177,7 +177,7 @@ const RoomView = () => {
 					onPress={() => router.push("/profile")}
 					className="w-10 h-10 rounded-full bg-muted items-center justify-center"
 				>
-					<Text className="text-md text-muted-foreground">
+					<Text className="text-sm text-muted-foreground">
 						{getInitialsFrom(user?.email)}
 					</Text>
 				</TouchableOpacity>
