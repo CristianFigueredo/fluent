@@ -1,3 +1,4 @@
+import { colors } from "@/constants/colors";
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 import {
@@ -38,9 +39,10 @@ const ChatAvatar = (props: ChatAvatarProps) => (
 	</View>
 );
 
-export function Chat({ messages, onSend }: ChatProps) {
+export function ChatUI({ messages, onSend }: ChatProps) {
 	return (
 		<GiftedChat
+			key={5}
 			messages={messages}
 			onSend={onSend}
 			user={{
@@ -51,6 +53,14 @@ export function Chat({ messages, onSend }: ChatProps) {
 			renderInputToolbar={DisabledInputToolbar}
 			renderBubble={ChatBubble}
 			messagesContainerStyle={styles.messagesContainer}
+			timeTextStyle={{
+				left: {
+					color: colors.dark.mutedForeground,
+				},
+				right: {
+					color: colors.dark.input,
+				},
+			}}
 			showUserAvatar
 			listViewProps={{
 				showsVerticalScrollIndicator: false,
@@ -63,7 +73,7 @@ export function Chat({ messages, onSend }: ChatProps) {
 
 const styles = StyleSheet.create({
 	leftBubble: {
-		backgroundColor: "#FFFFFF",
+		backgroundColor: colors.dark.secondary,
 		borderRadius: 20,
 		padding: 4,
 		marginBottom: 6,
@@ -74,7 +84,7 @@ const styles = StyleSheet.create({
 		elevation: 1,
 	},
 	rightBubble: {
-		backgroundColor: "rgba(0, 0, 0, 0.9)",
+		backgroundColor: colors.dark.primary,
 		borderRadius: 20,
 		padding: 4,
 		marginBottom: 6,
@@ -85,11 +95,11 @@ const styles = StyleSheet.create({
 		elevation: 1,
 	},
 	leftText: {
-		color: "#303030",
+		color: colors.dark.foreground,
 		fontSize: 15,
 	},
 	rightText: {
-		color: "#FFFFFF",
+		color: colors.dark.background,
 		fontSize: 15,
 	},
 	avatarContainer: {
@@ -97,23 +107,23 @@ const styles = StyleSheet.create({
 		height: 40,
 		borderRadius: 20,
 		overflow: "hidden",
-		backgroundColor: "white",
+		backgroundColor: colors.dark.muted,
 		justifyContent: "center",
 		alignItems: "center",
 		borderWidth: 1.5,
-		borderColor: "#f3f4f6",
+		borderColor: colors.dark.border,
 		shadowColor: "#000",
 		shadowOffset: { width: 0, height: 1 },
 		shadowOpacity: 0.05,
 		shadowRadius: 1,
 	},
 	avatarText: {
-		color: "#303030",
+		color: colors.dark.foreground,
 		fontSize: 14,
 		letterSpacing: -0.5,
 	},
 	messagesContainer: {
-		backgroundColor: "#FFF5F5",
+		backgroundColor: colors.dark.background,
 	},
 	listViewContent: {
 		paddingVertical: 22,
