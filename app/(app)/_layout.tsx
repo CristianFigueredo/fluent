@@ -21,15 +21,9 @@ export default function AppLayout() {
 					headerShown: true,
 					headerTitle: "Sign Up",
 					headerStyle: {
-						backgroundColor:
-							colorScheme === "dark"
-								? colors.dark.background
-								: colors.light.background,
+						backgroundColor: colors.dark.background,
 					},
-					headerTintColor:
-						colorScheme === "dark"
-							? colors.dark.foreground
-							: colors.light.foreground,
+					headerTintColor: colors.dark.foreground,
 					gestureEnabled: true,
 				}}
 			/>
@@ -40,15 +34,9 @@ export default function AppLayout() {
 					headerShown: true,
 					headerTitle: "Sign In",
 					headerStyle: {
-						backgroundColor:
-							colorScheme === "dark"
-								? colors.dark.background
-								: colors.light.background,
+						backgroundColor: colors.dark.background,
 					},
-					headerTintColor:
-						colorScheme === "dark"
-							? colors.dark.foreground
-							: colors.light.foreground,
+					headerTintColor: colors.dark.foreground,
 					gestureEnabled: true,
 				}}
 			/>
@@ -59,15 +47,9 @@ export default function AppLayout() {
 					headerShown: true,
 					headerTitle: "Modal",
 					headerStyle: {
-						backgroundColor:
-							colorScheme === "dark"
-								? colors.dark.background
-								: colors.light.background,
+						backgroundColor: colors.dark.background,
 					},
-					headerTintColor:
-						colorScheme === "dark"
-							? colors.dark.foreground
-							: colors.light.foreground,
+					headerTintColor: colors.dark.foreground,
 					gestureEnabled: true,
 				}}
 			/>

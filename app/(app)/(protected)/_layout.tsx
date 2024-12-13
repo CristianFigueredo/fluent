@@ -1,4 +1,5 @@
 import { Stack } from "expo-router";
+import { colors } from "@/constants/colors";
 
 export default function ProtectedLayout() {
 	return (
@@ -9,7 +10,14 @@ export default function ProtectedLayout() {
 					headerShown: false,
 				}}
 			/>
-			<Stack.Screen name="profile" options={{ presentation: "modal" }} />
+			<Stack.Screen
+				name="profile"
+				options={{
+					presentation: "modal",
+					headerStyle: { backgroundColor: colors.dark.background },
+					headerTintColor: colors.dark.foreground,
+				}}
+			/>
 		</Stack>
 	);
 }
