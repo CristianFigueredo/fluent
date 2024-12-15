@@ -16,12 +16,12 @@ export default function WelcomeScreen() {
 			<View className="flex flex-1 items-center justify-center gap-y-4 web:m-4">
 				<Image
 					source={require("@/assets/icon.png")}
-					className="w-16 h-16 rounded-xl"
+					className="w-24 h-24 rounded-full"
 				/>
-				<H1 className="text-center">Welcome to Expo Supabase Starter</H1>
-				<Muted className="text-center">
-					A comprehensive starter project for developing React Native and Expo
-					applications with Supabase as the backend.
+				<H1 className="text-center">¡Bienvenido a StreamConnect!</H1>
+				<Muted className="text-center px-4">
+					Conecta con tus streamers favoritos, disfruta de transmisiones en vivo
+					y participa en conversaciones emocionantes con otros espectadores.
 				</Muted>
 			</View>
 			<View className="flex flex-col gap-y-4 web:m-4">
@@ -32,7 +32,7 @@ export default function WelcomeScreen() {
 						router.push("/sign-up");
 					}}
 				>
-					<Text>Sign Up</Text>
+					<Text>Crear Cuenta</Text>
 				</Button>
 				<Button
 					size="default"
@@ -41,7 +41,7 @@ export default function WelcomeScreen() {
 						router.push("/sign-in");
 					}}
 				>
-					<Text>Sign In</Text>
+					<Text>Iniciar Sesión</Text>
 				</Button>
 			</View>
 		</SafeAreaView>

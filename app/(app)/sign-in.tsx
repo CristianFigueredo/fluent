@@ -42,7 +42,7 @@ export default function SignIn() {
 	return (
 		<SafeAreaView className="flex-1 bg-background p-4" edges={["bottom"]}>
 			<View className="flex-1 gap-4 web:m-4">
-				<H1 className="self-start ">Sign In</H1>
+				<H1 className="self-start ">Iniciar Sesión</H1>
 				<Form {...form}>
 					<View className="gap-4">
 						<FormField
@@ -87,7 +87,7 @@ export default function SignIn() {
 				{form.formState.isSubmitting ? (
 					<ActivityIndicator size="small" />
 				) : (
-					<Text>Sign In</Text>
+					<Text>Iniciar Sesión</Text>
 				)}
 			</Button>
 		</SafeAreaView>

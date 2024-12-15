@@ -19,7 +19,7 @@ export default function AppLayout() {
 				options={{
 					presentation: "modal",
 					headerShown: true,
-					headerTitle: "Sign Up",
+					headerTitle: "Registrarse",
 					headerStyle: {
 						backgroundColor:
 							colorScheme === "dark"
@@ -38,7 +38,7 @@ export default function AppLayout() {
 				options={{
 					presentation: "modal",
 					headerShown: true,
-					headerTitle: "Sign In",
+					headerTitle: "Iniciar Sesión",
 					headerStyle: {
 						backgroundColor:
 							colorScheme === "dark"
@@ -53,11 +53,10 @@ export default function AppLayout() {
 				}}
 			/>
 			<Stack.Screen
-				name="modal"
+				name="channel/[cid]"
 				options={{
-					presentation: "modal",
 					headerShown: true,
-					headerTitle: "Modal",
+					headerTitle: "Chat",
 					headerStyle: {
 						backgroundColor:
 							colorScheme === "dark"
