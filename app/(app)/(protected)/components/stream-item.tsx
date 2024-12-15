@@ -29,7 +29,7 @@ export function StreamItem({
 			{/* Thumbnail */}
 			<View className="rounded-2xl overflow-hidden relative">
 				<Image
-					source={thumbnailUrl}
+					source={thumbnailUrl || undefined}
 					className="w-full h-72"
 					resizeMode="cover"
 				/>
