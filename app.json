@@ -17,7 +17,7 @@
 			"splash": {
 				"image": "./assets/splash.png",
 				"resizeMode": "cover",
-				"backgroundColor": "hsl(240, 10%, 3.9%)"
+				"backgroundColor": "#09090b"
 			},
 			"bitcode": false,
 			"bundleIdentifier": "app.fluent.ai"
@@ -29,7 +29,7 @@
 			"splash": {
 				"image": "./assets/splash.png",
 				"resizeMode": "cover",
-				"backgroundColor": "hsl(240, 10%, 3.9%)"
+				"backgroundColor": "#09090b"
 			},
 			"permissions": [
 				"android.permission.INTERNET",
