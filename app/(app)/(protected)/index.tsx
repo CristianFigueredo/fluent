@@ -12,7 +12,7 @@ import {
 } from "@livekit/react-native";
 import { useTrackTranscription } from "@livekit/components-react";
 import { Track, ConnectionState } from "livekit-client";
-import { Text, TouchableOpacity, StatusBar } from "react-native";
+import { Text, TouchableOpacity } from "react-native";
 import { Octicons } from "@expo/vector-icons";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { Feather } from "@expo/vector-icons";
@@ -53,7 +53,6 @@ export default function ProtectedLayout() {
 
 	return (
 		<View className="flex-1 bg-background">
-			<StatusBar barStyle="light-content" />
 			<LiveKitRoom serverUrl={wsURL} token={""} connect={false} audio>
 				<RoomView />
 			</LiveKitRoom>

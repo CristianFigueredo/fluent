@@ -1,6 +1,6 @@
 import { useRouter } from "expo-router";
 import React from "react";
-import { View, StatusBar } from "react-native";
+import { View } from "react-native";
 
 import { Image } from "@/components/image";
 import { SafeAreaView } from "@/components/safe-area-view";
@@ -15,7 +15,6 @@ export default function WelcomeScreen() {
 
 	return (
 		<SafeAreaView className="flex flex-1 bg-background p-4">
-			<StatusBar barStyle="light-content" />
 			<View className="flex flex-1 items-center justify-center web:m-4">
 				<Image source={require("@/assets/icon.png")} className="w-24 h-24" />
 				<H1 className="text-center mb-2">Fluent AI</H1>
