@@ -22,6 +22,8 @@ import { supabase } from "@/config/supabase";
 import type { SessionTokenResponse } from "@/types/livekit";
 import { getInitialsFrom } from "@/lib/utils";
 import { useSupabase } from "@/context/supabase-provider";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { storageIdentifiers } from "@/constants/storage";
 
 const getSessionAccessToken = async (
 	participantIdentity: string,
@@ -68,6 +70,23 @@ const RoomView = () => {
 	const router = useRouter();
 	const insets = useSafeAreaInsets();
 	const { user } = useSupabase();
+
+	useEffect(() => {
+		const checkDisclaimerStatus = async () => {
+			try {
+				const hasSeenDisclaimer = await AsyncStorage.getItem(
+					storageIdentifiers.hasSeenDisclaimer,
+				);
+				if (!hasSeenDisclaimer) {
+					router.push("/disclaimer");
+				}
+			} catch (error) {
+				console.error("Error checking disclaimer status:", error);
+			}
+		};
+
+		checkDisclaimerStatus();
+	}, [router]);
 
 	const tracks = useTracks();
 	const agentAudioTrack = tracks.find(

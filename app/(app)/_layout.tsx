@@ -8,8 +8,6 @@ export const unstable_settings = {
 };
 
 export default function AppLayout() {
-	const { colorScheme } = useColorScheme();
-
 	return (
 		<Stack screenOptions={{ headerShown: false, gestureEnabled: false }}>
 			<Stack.Screen name="(protected)" />
@@ -38,6 +36,14 @@ export default function AppLayout() {
 					},
 					headerTintColor: colors.dark.foreground,
 					gestureEnabled: true,
+				}}
+			/>
+			<Stack.Screen
+				name="disclaimer"
+				options={{
+					presentation: "modal",
+					headerShown: false,
+					gestureEnabled: false,
 				}}
 			/>
 			<Stack.Screen
