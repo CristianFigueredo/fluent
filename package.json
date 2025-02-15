@@ -16,7 +16,6 @@
 		"@livekit/react-native": "^2.4.3",
 		"@livekit/react-native-expo-plugin": "^1.0.0",
 		"@livekit/react-native-webrtc": "^125.0.5",
-		"@millisai/web-sdk": "^1.0.15",
 		"@react-native-async-storage/async-storage": "1.23.1",
 		"@supabase/supabase-js": "^2.46.1",
 		"burnt": "^0.12.2",
@@ -46,7 +45,6 @@
 		"react-native-screens": "3.31.1",
 		"react-native-url-polyfill": "^2.0.0",
 		"react-native-web": "~0.19.13",
-		"react-native-webview": "13.8.6",
 		"tailwind-merge": "^2.5.4",
 		"tailwindcss": "^3.4.14",
 		"zod": "^3.23.8"
