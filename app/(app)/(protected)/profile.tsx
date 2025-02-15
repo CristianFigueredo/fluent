@@ -1,4 +1,4 @@
-import { View, ScrollView } from "react-native";
+import { View, ScrollView, Alert } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 
 import { Button } from "@/components/ui/button";
@@ -7,9 +7,47 @@ import { useSupabase } from "@/context/supabase-provider";
 import { colors } from "@/constants/colors";
 import { getInitialsFrom, openLink } from "@/lib/utils";
 import { TERMS_AND_CONDITIONS_URL, PRIVACY_POLICY_URL } from "@/constants/urls";
+import { supabase } from "@/config/supabase";
 
 export default function Profile() {
 	const { signOut, user } = useSupabase();
+
+	const requestAccountDeletion = async () => {
+		try {
+			const { error } = await supabase
+				.from("deletion_requests")
+				.insert([{ user_id: user?.id, status: "pending" }]);
+
+			if (error) throw error;
+
+			Alert.alert(
+				"Request Submitted",
+				"Your account deletion request has been submitted. We'll process it soon.",
+				[{ text: "OK", onPress: signOut }],
+			);
+		} catch (error) {
+			console.error("Error requesting account deletion:", error);
+			Alert.alert(
+				"Error",
+				"Failed to submit account deletion request. Please try again later.",
+			);
+		}
+	};
+
+	const confirmDeletion = () => {
+		Alert.alert(
+			"Delete Account",
+			"Are you sure you want to delete your account? This action cannot be undone.",
+			[
+				{ text: "Cancel", style: "cancel" },
+				{
+					text: "Delete",
+					style: "destructive",
+					onPress: requestAccountDeletion,
+				},
+			],
+		);
+	};
 
 	return (
 		<ScrollView className="flex-1 bg-background">
@@ -57,6 +95,18 @@ export default function Profile() {
 							name="log-out-outline"
 							size={20}
 							color={colors.dark.mutedForeground}
+						/>
+					</Button>
+					<Button
+						variant="ghost"
+						className="flex-row justify-between items-center w-full py-3"
+						onPress={confirmDeletion}
+					>
+						<Text className="text-destructive">Delete Account</Text>
+						<Ionicons
+							name="trash-outline"
+							size={20}
+							color={colors.dark.destructive}
 						/>
 					</Button>
 				</View>
