@@ -62,7 +62,6 @@ export default function SignUp() {
 		try {
 			await signUp(data.email, data.password);
 			form.reset();
-			router.navigate("/(app)/(protected)/");
 		} catch (error: Error | any) {
 			console.log(error.message);
 		}
