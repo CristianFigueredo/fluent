@@ -12,6 +12,7 @@ import { useSupabase } from "@/context/supabase-provider";
 import { Checkbox } from "@/components/ui/checkbox";
 import { openLink } from "@/lib/utils";
 import { TERMS_AND_CONDITIONS_URL, PRIVACY_POLICY_URL } from "@/constants/urls";
+import { useRouter } from "expo-router";
 
 const formSchema = z
 	.object({
@@ -45,6 +46,7 @@ const formSchema = z
 
 export default function SignUp() {
 	const { signUp } = useSupabase();
+	const router = useRouter();
 
 	const form = useForm<z.infer<typeof formSchema>>({
 		resolver: zodResolver(formSchema),
@@ -60,6 +62,7 @@ export default function SignUp() {
 		try {
 			await signUp(data.email, data.password);
 			form.reset();
+			router.navigate("/(app)/(protected)/");
 		} catch (error: Error | any) {
 			console.log(error.message);
 		}
