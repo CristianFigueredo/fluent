@@ -1,9 +1,36 @@
 import { Stack } from "expo-router";
 import { colors } from "@/constants/colors";
+import { ModalHeader } from "@/components/ui/modal-header";
 
 export default function ProtectedLayout() {
 	return (
-		<Stack>
+		<Stack
+			screenOptions={({ route }) => ({
+				headerShown: true,
+				header: ({ navigation, route }) => {
+					// Don't show header for index screen
+					if (route.name === "index") return null;
+
+					// Get the screen title
+					let title = "";
+					switch (route.name) {
+						case "profile":
+							title = "Profile";
+							break;
+						case "contact":
+							title = "Contact Us";
+							break;
+						case "disclaimer":
+							title = "Important Notice";
+							break;
+						default:
+							title = route.name;
+					}
+
+					return <ModalHeader title={title} />;
+				},
+			})}
+		>
 			<Stack.Screen
 				name="index"
 				options={{
@@ -14,8 +41,20 @@ export default function ProtectedLayout() {
 				name="profile"
 				options={{
 					presentation: "modal",
-					headerStyle: { backgroundColor: colors.dark.background },
-					headerTintColor: colors.dark.foreground,
+				}}
+			/>
+			<Stack.Screen
+				name="disclaimer"
+				options={{
+					presentation: "modal",
+					gestureEnabled: false,
+				}}
+			/>
+			<Stack.Screen
+				name="contact"
+				options={{
+					presentation: "modal",
+					gestureEnabled: true,
 				}}
 			/>
 		</Stack>
