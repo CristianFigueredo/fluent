@@ -29,7 +29,7 @@ export function ModalHeader({
 	};
 
 	return (
-		<View className="bg-background flex-row items-center px-4 py-2 border-b border-border">
+		<View className="bg-background flex-row items-center px-4 pt-8 pb-4 border-b border-border">
 			{showBackButton && (
 				<Button
 					variant="ghost"
