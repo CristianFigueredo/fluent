@@ -5,9 +5,9 @@ import { ModalHeader } from "@/components/ui/modal-header";
 export default function ProtectedLayout() {
 	return (
 		<Stack
-			screenOptions={({ route }) => ({
-				headerShown: true,
+			screenOptions={() => ({
 				header: ({ navigation, route }) => {
+					console.log("route", route.name);
 					// Don't show header for index screen
 					if (route.name === "index") return null;
 

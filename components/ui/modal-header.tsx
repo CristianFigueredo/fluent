@@ -9,12 +9,14 @@ interface ModalHeaderProps {
 	title: string;
 	showBackButton?: boolean;
 	onBackPress?: () => void;
+	variant?: "modal" | "back";
 }
 
 export function ModalHeader({
 	title,
 	showBackButton = true,
 	onBackPress,
+	variant = "modal",
 }: ModalHeaderProps) {
 	const router = useRouter();
 
@@ -35,7 +37,11 @@ export function ModalHeader({
 					onPress={handleBackPress}
 					className="mr-2"
 				>
-					<Ionicons name="close" size={24} color={colors.dark.foreground} />
+					<Ionicons
+						name={variant === "modal" ? "close" : "chevron-back"}
+						size={24}
+						color={colors.dark.foreground}
+					/>
 				</Button>
 			)}
 			<H1 className="text-xl">{title}</H1>
