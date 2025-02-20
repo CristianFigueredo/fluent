@@ -8,6 +8,10 @@
 		"icon": "./assets/icon.png",
 		"userInterfaceStyle": "dark",
 		"assetBundlePatterns": ["**/*"],
+		"androidStatusBar": {
+			"backgroundColor": "#000000",
+			"translucent": true
+		},
 		"ios": {
 			"supportsTablet": true,
 			"config": {
@@ -40,6 +44,7 @@
 				"android.permission.WAKE_LOCK",
 				"android.permission.BLUETOOTH"
 			],
+			"blockedPermissions": ["android.permission.CAMERA"],
 			"package": "app.fluent.ai"
 		},
 		"experiments": {
