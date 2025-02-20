@@ -1,76 +1,72 @@
 {
-  "expo": {
-    "name": "Fluent",
-    "slug": "fluent",
-    "scheme": "fluent",
-    "version": "1.0.0",
-    "orientation": "portrait",
-    "icon": "./assets/icon.png",
-    "userInterfaceStyle": "automatic",
-    "assetBundlePatterns": [
-      "**/*"
-    ],
-    "ios": {
-      "supportsTablet": true,
-      "config": {
-        "usesNonExemptEncryption": false
-      },
-      "permissions": [
-        "microphone"
-      ],
-      "splash": {
-        "image": "./assets/splash.png",
-        "resizeMode": "cover",
-        "backgroundColor": "#09090b"
-      },
-      "bitcode": false,
-      "bundleIdentifier": "app.fluent.ai"
-    },
-    "android": {
-      "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png"
-      },
-      "splash": {
-        "image": "./assets/splash.png",
-        "resizeMode": "cover",
-        "backgroundColor": "#09090b"
-      },
-      "permissions": [
-        "android.permission.INTERNET",
-        "android.permission.MODIFY_AUDIO_SETTINGS",
-        "android.permission.RECORD_AUDIO",
-        "android.permission.ACCESS_NETWORK_STATE",
-        "android.permission.CAMERA",
-        "android.permission.SYSTEM_ALERT_WINDOW",
-        "android.permission.WAKE_LOCK",
-        "android.permission.BLUETOOTH"
-      ],
-      "package": "app.fluent.ai"
-    },
-    "experiments": {
-      "typedRoutes": true
-    },
-    "plugins": [
-      "expo-router",
-      "expo-secure-store",
-      "@livekit/react-native-expo-plugin",
-      "@config-plugins/react-native-webrtc",
-      [
-        "expo-build-properties",
-        {
-          "ios": {
-            "deploymentTarget": "13.4"
-          }
-        }
-      ]
-    ],
-    "extra": {
-      "router": {
-        "origin": false
-      },
-      "eas": {
-        "projectId": "edc80c09-bcf9-430e-911b-8a0b8b664159"
-      }
-    }
-  }
+	"expo": {
+		"name": "Fluent",
+		"slug": "fluent",
+		"scheme": "fluent",
+		"version": "1.0.0",
+		"orientation": "portrait",
+		"icon": "./assets/icon.png",
+		"userInterfaceStyle": "dark",
+		"assetBundlePatterns": ["**/*"],
+		"ios": {
+			"supportsTablet": true,
+			"config": {
+				"usesNonExemptEncryption": false
+			},
+			"permissions": ["microphone"],
+			"splash": {
+				"image": "./assets/splash.png",
+				"resizeMode": "cover",
+				"backgroundColor": "#09090b"
+			},
+			"bitcode": false,
+			"bundleIdentifier": "app.fluent.ai"
+		},
+		"android": {
+			"adaptiveIcon": {
+				"foregroundImage": "./assets/adaptive-icon.png"
+			},
+			"splash": {
+				"image": "./assets/splash.png",
+				"resizeMode": "cover",
+				"backgroundColor": "#09090b"
+			},
+			"permissions": [
+				"android.permission.INTERNET",
+				"android.permission.MODIFY_AUDIO_SETTINGS",
+				"android.permission.RECORD_AUDIO",
+				"android.permission.ACCESS_NETWORK_STATE",
+				"android.permission.CAMERA",
+				"android.permission.SYSTEM_ALERT_WINDOW",
+				"android.permission.WAKE_LOCK",
+				"android.permission.BLUETOOTH"
+			],
+			"package": "app.fluent.ai"
+		},
+		"experiments": {
+			"typedRoutes": true
+		},
+		"plugins": [
+			"expo-router",
+			"expo-secure-store",
+			"@livekit/react-native-expo-plugin",
+			"@config-plugins/react-native-webrtc",
+			[
+				"expo-build-properties",
+				{
+					"ios": {
+						"deploymentTarget": "13.4"
+					}
+				}
+			]
+		],
+		"extra": {
+			"router": {
+				"origin": false
+			},
+			"eas": {
+				"projectId": "edc80c09-bcf9-430e-911b-8a0b8b664159"
+			}
+		}
+	}
 }
