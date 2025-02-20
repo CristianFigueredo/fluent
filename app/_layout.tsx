@@ -12,7 +12,11 @@ registerGlobals();
 export default function AppLayout() {
 	return (
 		<SupabaseProvider>
-			<StatusBar style="light" backgroundColor={colors.dark.background} />
+			<StatusBar
+				style="light"
+				translucent
+				backgroundColor={colors.dark.background}
+			/>
 			<Slot />
 		</SupabaseProvider>
 	);
