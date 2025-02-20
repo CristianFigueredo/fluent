@@ -1,16 +1,14 @@
 import { Stack } from "expo-router";
 
 import { colors } from "@/constants/colors";
-import { useColorScheme } from "@/lib/useColorScheme";
 
 export const unstable_settings = {
-	initialRouteName: "(root)",
+	initialRouteName: "welcome",
 };
 
 export default function AppLayout() {
 	return (
 		<Stack screenOptions={{ headerShown: false, gestureEnabled: false }}>
-			<Stack.Screen name="(protected)" />
 			<Stack.Screen name="welcome" />
 			<Stack.Screen
 				name="sign-up"
@@ -38,27 +36,7 @@ export default function AppLayout() {
 					gestureEnabled: true,
 				}}
 			/>
-			<Stack.Screen
-				name="disclaimer"
-				options={{
-					presentation: "modal",
-					headerShown: false,
-					gestureEnabled: false,
-				}}
-			/>
-			<Stack.Screen
-				name="modal"
-				options={{
-					presentation: "modal",
-					headerShown: true,
-					headerTitle: "Modal",
-					headerStyle: {
-						backgroundColor: colors.dark.background,
-					},
-					headerTintColor: colors.dark.foreground,
-					gestureEnabled: true,
-				}}
-			/>
+			<Stack.Screen name="(protected)" />
 		</Stack>
 	);
 }

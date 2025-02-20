@@ -71,23 +71,6 @@ const RoomView = () => {
 	const insets = useSafeAreaInsets();
 	const { user } = useSupabase();
 
-	useEffect(() => {
-		const checkDisclaimerStatus = async () => {
-			try {
-				const hasSeenDisclaimer = await AsyncStorage.getItem(
-					storageIdentifiers.hasSeenDisclaimer,
-				);
-				if (!hasSeenDisclaimer) {
-					router.push("/disclaimer");
-				}
-			} catch (error) {
-				console.error("Error checking disclaimer status:", error);
-			}
-		};
-
-		checkDisclaimerStatus();
-	}, [router]);
-
 	const tracks = useTracks();
 	const agentAudioTrack = tracks.find(
 		(trackRef) =>
@@ -184,6 +167,16 @@ const RoomView = () => {
 			});
 		}
 	};
+	useEffect(() => {
+		if (!user) return;
+		AsyncStorage.getItem(storageIdentifiers.hasSeenDisclaimer).then((value) => {
+			if (!value) {
+				setTimeout(() => {
+					router.push("/disclaimer");
+				}, 2000);
+			}
+		});
+	}, []);
 
 	return (
 		<Fragment>

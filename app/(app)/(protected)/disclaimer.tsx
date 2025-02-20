@@ -22,7 +22,7 @@ export default function DisclaimerModal() {
 	};
 
 	return (
-		<SafeAreaView className="flex-1 bg-background">
+		<SafeAreaView className="flex-1 bg-zinc-900">
 			<View className="flex-1 px-6 py-8">
 				<View className="items-center mb-12">
 					<View className="w-16 h-16 bg-primary/10 rounded-full items-center justify-center mb-6">
